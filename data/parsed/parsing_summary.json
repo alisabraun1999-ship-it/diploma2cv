@@ -1,0 +1,50 @@
+{
+    "09.03.03-21-01-182 ПИВС.plx (2).xlsx": {
+        "status": "success",
+        "disciplines_count": 32,
+        "competences_count": 32,
+        "output_file": "data/parsed\\09.03.03-21-01-182 ПИВС.plx (2)_parsed.json"
+    },
+    "38.03.04-21-01-63 ГиМУ новый.plx (1).xlsx": {
+        "status": "success",
+        "disciplines_count": 31,
+        "competences_count": 31,
+        "output_file": "data/parsed\\38.03.04-21-01-63 ГиМУ новый.plx (1)_parsed.json"
+    },
+    "39.03.01-21-01-77  Социология.plx (1).xlsx": {
+        "status": "success",
+        "disciplines_count": 40,
+        "competences_count": 39,
+        "output_file": "data/parsed\\39.03.01-21-01-77  Социология.plx (1)_parsed.json"
+    },
+    "39.03.02-21-01-202 Соцработа.plx (2).xlsx": {
+        "status": "success",
+        "disciplines_count": 33,
+        "competences_count": 33,
+        "output_file": "data/parsed\\39.03.02-21-01-202 Соцработа.plx (2)_parsed.json"
+    },
+    "sz39_03_02_2021_01_202_Социальная_работа_Сотникова_plx.xlsx": {
+        "status": "success",
+        "disciplines_count": 33,
+        "competences_count": 33,
+        "output_file": "data/parsed\\sz39_03_02_2021_01_202_Социальная_работа_Сотникова_plx_parsed.json"
+    },
+    "z09.03.03-2019-01-182-ПИВС 2 - 3 курсы 21.plx (1).xlsx": {
+        "status": "success",
+        "disciplines_count": 31,
+        "competences_count": 31,
+        "output_file": "data/parsed\\z09.03.03-2019-01-182-ПИВС 2 - 3 курсы 21.plx (1)_parsed.json"
+    },
+    "z39_03_01_2019_01_77_Социология_2_3_курсы_21_г_plx_1.xlsx": {
+        "status": "success",
+        "disciplines_count": 40,
+        "competences_count": 40,
+        "output_file": "data/parsed\\z39_03_01_2019_01_77_Социология_2_3_курсы_21_г_plx_1_parsed.json"
+    },
+    "z39_03_02_2019_01_202_Социальная_работа_3_курс_21_plx_1.xlsx": {
+        "status": "success",
+        "disciplines_count": 33,
+        "competences_count": 33,
+        "output_file": "data/parsed\\z39_03_02_2019_01_202_Социальная_работа_3_курс_21_plx_1_parsed.json"
+    }
+}

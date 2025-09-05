@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diploma2CV - Результаты парсинга</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 10px;
+            min-width: 150px;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .result-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        .discipline {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .competence {
+            display: inline-block;
+            padding: 3px 8px;
+            margin: 2px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .error {
+            color: #e74c3c;
+            padding: 20px;
+            background: #fdedec;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .success {
+            color: #27ae60;
+            padding: 20px;
+            background: #e8f5e8;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-btn">← На главную</a>
+        <h1>📊 Результаты парсинга учебных планов</h1>
+
+        {% if error %}
+            <div class="error">
+                <h3>❌ Ошибка</h3>
+                <p>{{ error }}</p>
+            </div>
+        {% else %}
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">{{ total_files }}</div>
+                    <div>Файлов обработано</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">{{ total_disciplines }}</div>
+                    <div>Дисциплин найдено</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">{{ total_competences }}</div>
+                    <div>Компетенций</div>
+                </div>
+            </div>
+
+            {% for result in results %}
+            <div class="result-card">
+                <h3>📄 {{ result.filename }}</h3>
+                <p>📚 Дисциплин: {{ result.disciplines_count }} | 🎯 Компетенций: {{ result.competences_count }}</p>
+                
+                <h4>Дисциплины:</h4>
+                {% for disc in result.disciplines %}
+                <div class="discipline">
+                    <strong>{{ disc.code }}</strong>: {{ disc.name }}
+                    <br>
+                    <small>Зачётные единицы: {{ disc.credits }}</small>
+                    {% if disc.competences %}
+                    <br>
+                    <small>Компетенции: 
+                        {% for comp in disc.competences %}
+                        <span class="competence">{{ comp }}</span>
+                        {% endfor %}
+                    </small>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                
+                {% if result.disciplines_count > 10 %}
+                <p>... и еще {{ result.disciplines_count - 10 }} дисциплин</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
